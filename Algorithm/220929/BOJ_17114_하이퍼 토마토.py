@@ -1,59 +1,57 @@
 import sys
-#input = sys.stdin.readline
-sys.stdin = open("input.txt")
+input = sys.stdin.readline
+#sys.stdin = open("input.txt")
 from collections import deque
 
 def boundary(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11):
-    if 0 <= a1 < N and 0 <= a2 < O and 0 <= a3 < P and 0 <= a4 < Q and \
-        0 <= a5 < R and 0 <= a6 < S and 0 <= a7 < T and 0 <= a8 < U and \
-        0 <= a9 < V and 0 <= a10 < W and 0 <= a11 < M:
+    if 0 <= a1 < M and 0 <= a2 < N and 0 <= a3 < O and 0 <= a4 < P and \
+        0 <= a5 < Q and 0 <= a6 < R and 0 <= a7 < S and 0 <= a8 < T and \
+        0 <= a9 < U and 0 <= a10 < V and 0 <= a11 < W:
         return True
     else:
         return False
 
-dn = (1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-do = (0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-dp = (0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-dq = (0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-dr = (0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-ds = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-dt = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0)
-du = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0)
-dv = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0)
-dw = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0)
-dm = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1)
+dm = (1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+dn = (0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+do = (0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+dp = (0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+dq = (0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+dr = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+ds = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0)
+dt = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0)
+du = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0)
+dv = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0)
+dw = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1)
 
 M, N, O, P, Q, R, S, T, U, V, W = map(int, input().split())
 putt_tomato = 0
-q_tomato, q_depth = deque(), deque()
+q_tomato = deque()
 lst_11th = []
-for n in range(N):
+for w in range(W):
     tmp_10th = []
-    for o in range(O):
+    for v in range(V):
         tmp_9th = []
-        for p in range(P):
+        for u in range(U):
             tmp_8th = []
-            for q in range(Q):
+            for t in range(T):
                 tmp_7th = []
-                for r in range(R):
+                for s in range(S):
                     tmp_6th = []
-                    for s in range(S):
+                    for r in range(R):
                         tmp_5th = []
-                        for t in range(T):
+                        for q in range(Q):
                             tmp_4th = []
-                            for u in range(U):
+                            for p in range(P):
                                 tmp_3rd = []
-                                for v in range(V):
+                                for o in range(O):
                                     tmp_2nd = []
-                                    for w in range(W):
+                                    for n in range(N):
                                         lst = list(map(int, input().split()))
-                                        print(n, o)
                                         for m in range(M):
                                             if lst[m] == 0:
                                                 putt_tomato += 1
                                             elif lst[m] == 1:
-                                                q_tomato.append((n, o, p, q, r, s, t, u, v, w, m)) # m만 맨 뒤로 가야함!
-                                                q_depth.append(0)
+                                                q_tomato.append((0, m, n, o, p, q, r, s, t, u, v, w))
                                         tmp_2nd.append(lst)
                                     tmp_3rd.append(tmp_2nd)
                                 tmp_4th.append(tmp_3rd)
@@ -66,24 +64,20 @@ for n in range(N):
     lst_11th.append(tmp_10th)
 
 if putt_tomato == 0:
-    print(1)
+    print(0) # 다 풀어놓고 이걸 잘못 적어서 24시간을 헤맴. ㅋㅋㅋㅋㅋ
 else:
     d = 0
-    print(q_tomato)
     while q_tomato:
-        n, o, p, q, r, s, t, u, v, w, m = q_tomato.popleft()
-        d = q_depth.popleft()
+        d, m, n, o, p, q, r, s, t, u, v, w = q_tomato.popleft()
         for di in range(22):
-            nn, no, np, nq, nr, ns, nt, nu, nv, nw, nm = (
-                n + dn[di], o + do[di], p + dp[di], q + dq[di],
-                r + dr[di], s + ds[di], t + dt[di], u + du[di],
-                v + dv[di], w + dw[di], m + dm[di]
+            nm, nn, no, np, nq, nr, ns, nt, nu, nv, nw = (
+                m + dm[di], n + dn[di], o + do[di], p + dp[di],
+                q + dq[di], r + dr[di], s + ds[di], t + dt[di],
+                u + du[di], v + dv[di], w + dw[di]
             )
-            #print(nn, no, nm)
-            if boundary(nn, no, np, nq, nr, ns, nt, nu, nv, nw, nm) and lst_11th[nn][no][np][nq][nr][ns][nt][nu][nv][nw][nm] == 0:
+            if boundary(nm, nn, no, np, nq, nr, ns, nt, nu, nv, nw) and lst_11th[nw][nv][nu][nt][ns][nr][nq][np][no][nn][nm] == 0:
                 putt_tomato -= 1
-                lst_11th[nn][no][np][nq][nr][ns][nt][nu][nv][nw][nm] = 1
-                q_tomato.append((nn, no, np, nq, nr, ns, nt, nu, nv, nw, nm))
-                q_depth.append(d + 1)
-        print(d, lst_11th)
+                lst_11th[nw][nv][nu][nt][ns][nr][nq][np][no][nn][nm] = 1
+                q_tomato.append((d + 1, nm, nn, no, np, nq, nr, ns, nt, nu, nv, nw))
+
     print(d) if putt_tomato == 0 else print(-1)
