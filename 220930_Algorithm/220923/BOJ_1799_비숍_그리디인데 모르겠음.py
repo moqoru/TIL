@@ -24,12 +24,13 @@ def check_attackable(x, y):
 
 def place_bishop(num_bishop):
     global placeable
-    min_num, min_fill = 20, set()
+    min_num, min_fill = 20, []
     for i_p, j_p in placeable:
         fill = check_attackable(i_p, j_p)
         if len(fill) < min_num: # 현재 <일 경우 오답, <=일 경우 정답으로 처리되는 상황임.
             min_num = len(fill)
             min_fill = fill.copy()
+        elif len(fill) == min_num:
     placeable = placeable - min_fill
     if len(placeable) == 0:
         global ans
