@@ -29,7 +29,7 @@
 - 이전 차시에서 new Vue()로 HTML 파일 안에 집어넣던 것을 HTML + CSS + JavaScript 묶음으로 이루어진 기능 단위의 한 파일로 독립시키는 것
 - Component : UI를 기능별로 분화한 코드 조각이며, 보편적으로는 컴포넌트들을 tree로 중첩시켜 하나의 app으로 구성함. 카드 뉴스 등 반복되는 UI 구성이 쉬워져서 **유지보수가 쉽고 재사용성에서도 강력함**
 
-# 4. Vue Component
+# 4. Vue Cli 실습
 
 ## 4-1. Vue Component 구조
 
