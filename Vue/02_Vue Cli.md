@@ -2,7 +2,7 @@
 
 ## 3-1. Vue Cli 설치 (반드시 VSCode의 터미널에서 진행!)
 
-- npm install -g @vue/cli 입력 (Node.js가 설치되어 있어야 하며, npm은 패키지를 설치하는 구문임. Django와는 다르게 **단 한 번만 입력해주면 이후 다시 입력할 필요는 없음**)
+- npm install -g @vue/cli 입력 (Node.js가 설치되어 있어야 하며, npm은 패키지를 설치하는 구문임)
 - vue create (프로젝트명)
 - Vue 버전을 방향키와 Enter로 Vue 2를 선택 (Bash로는 키보드 입력이 안 먹힌다!)
 - cd (프로젝트명)
