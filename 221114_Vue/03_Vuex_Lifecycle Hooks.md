@@ -73,7 +73,7 @@
   - 소속 함수의 인자
     - context : 정의할 때는 store 내부의 다른 요소나 메서드를 탐색하는 용도로 사용, 다른 vue 파일에서 호출할 때는 사용하고자 하는 actions 함수 이름을 ''로 감싸서 적는다
     - payload : 다른 vue 파일에서 보내고 받는 데이터
-  - 다른 vue 파일에서 호출할 때는 $store.dispatch('함수명', 데이터) 메서드로 호출
+  - 다른 vue 파일에서 호출할 때는 this.$store.dispatch('함수명', 데이터) 메서드로 호출, actions 안에서 다른 actions를 호출할 때도 this.dispatch(...)로 호출하면 된다!
 
   ```javascript
   actions : {
