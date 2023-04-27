@@ -39,7 +39,7 @@ function reducer(currentState, action) {
 ```
 
 - react-redux의 ~~4대장~~ 3대장
-  - Provider : 컴포넌트 역할, state를 어떤 컴포넌트들에게 제공할 것인가?에 대한 가장 바깥쪽 울타리를 정의
+  - Provider : state를 사용할 컴포넌트 범위를 정의
   - useSelector : 어떤 state 값을 쓸 지 선택
   - useDispatch : state 값을 변경할 때 사용
   - connect : 클래스형 컴포넌트에서 컴포넌트를 특정 함수로 감싸서 값이나 함수를 props로 받아오는 거 (재사용성), 함수형 쓸 때는 Hooks 쓰면 되므로 별로 안 씀
